@@ -23,9 +23,22 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss",
+              "src/assets/zTree/main.scss",
+              "src/assets/styles/style.scss"
             ],
-            "scripts": [],
+            "scripts": [
+              "node_modules/jsonpath-plus/dist/index-umd.js",
+              "node_modules/js-cookie/src/js.cookie.js",
+              "node_modules/jquery/dist/jquery.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/js/jsonPath/jsonPath.js",
+              "src/assets/js/XML-Util/ObjTree.js",
+              "src/assets/js/XML-Util/jkl-dumper.js",
+              "src/assets/zTree/zTree_v3/js/jquery.ztree.core-3.5.js",
+              "src/assets/zTree/zTree_v3/js/jquery.ztree.exedit-3.5.js",
+              "src/assets/js/aes-js/aes.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {

@@ -1,0 +1,25 @@
+<div class="pagination--box">
+    <mat-checkbox  [(ngModel)]="isSelectAll" (change)="selectAll.emit(isSelectAll)">全选</mat-checkbox>
+
+    数据记录共 {{totalElement}} 条
+    当前第{{currentPage}}页 / 共{{pageCount[pageCount.length - 1]}}页    
+    <button mat-stroked-button class="page--btn"  [disabled]="currentPage == 1" (click)="currentPage = 1;changePage()"><span class="ti-angle-double-left"></span></button>
+    <button mat-stroked-button class="page--btn"  [disabled]="currentPage == 1" (click)="currentPage=currentPage-1;changePage()"><span class="ti-angle-left"></span></button>
+    第
+    <mat-select (selectionChange)="changePage($event)" [(ngModel)]="currentPage">
+            <mat-select-trigger>
+                    {{currentPage}}
+            </mat-select-trigger>
+            <mat-option *ngFor="let page of pageCount" [value]="page">{{page}}</mat-option>
+    </mat-select>
+    页
+    <button mat-stroked-button class="page--btn"  [disabled]="currentPage == pageCount[pageCount.length - 1]" (click)="currentPage=currentPage+1;changePage()"><span class="ti-angle-right"></span></button>
+    <button mat-stroked-button class="page--btn"  [disabled]="currentPage == pageCount[pageCount.length - 1]" (click)="currentPage = pageCount[pageCount.length - 1];changePage()"><span class="ti-angle-double-right"></span></button>
+    <!-- <ngb-pagination class="pagination" [hidden]="totalElement == 0" (pageChange)="changePage($event)" [maxSize]="5" [pageSize]="50"
+                    [collectionSize]="totalElement" [(page)]="currentPage" [rotate]="true" [boundaryLinks]="false">
+                             
+    </ngb-pagination> -->
+<!-- 
+    <input class="form-control input--number" type="number" [(ngModel)]="page">
+    <button mat-stroked-button  (click)="changePageManual()">跳转</button> -->
+</div>

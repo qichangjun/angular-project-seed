@@ -1,0 +1,71 @@
+<!-- ============================================================== -->
+<!-- Notification - style you can find in header.scss -->
+<!-- ============================================================== -->
+<!-- <button [matMenuTriggerFor]="notification" mat-icon-button class="">
+    <i class="fa fa-bell" aria-hidden="true"></i>
+    <div class="notify"> <span class="heartbit"></span> <span class="point"></span> </div>
+</button> -->
+<a href="http://amberdata.cn/search" target="_blank" mat-icon-button class="srh-btn search--btn">
+    <span>
+        <i class="ti-search"></i>
+    </span>
+</a>
+
+
+<div class="user--img--box" [matMenuTriggerFor]="matMenu">
+    <div #userImg>
+        <img onerror="this.src='./assets/images/users/default-user.png'" src="" style="height:34px;width: 34px;"  class="media-object" />
+    </div>
+
+</div>
+<mat-menu overlapTrigger="false" xPosition="before" yPosition="below" #matMenu="matMenu">
+    <button mat-menu-item >
+        <span>
+            <!--<i class="ti-pencil-alt" aria-hidden="true"></i>-->
+            编辑
+        </span>
+    </button>
+    <button mat-menu-item [routerLink]="['/login']">
+        <span>
+            <!--<i class="fa fa-sign-out" aria-hidden="true"></i>-->
+            登出
+        </span>
+    </button>
+</mat-menu>
+
+<mat-menu #notification="matMenu" class="mymegamenu">
+    <div class="mailbox">
+        <ul>
+            <li>
+                <div class="drop-title">Notifications</div>
+            </li>
+            <li>
+                <div class="message-center">
+                    <perfect-scrollbar [config]="config">
+                        <!-- Message -->
+                        <a href="#" *ngFor="let notification of notifications">
+                            <div class="round {{notification.round}}"><i class="{{notification.icon}}"></i></div>
+                            <div class="mail-contnet">
+                                <h5>{{notification.title}}</h5> <span class="mail-desc">{{notification.subject}}</span>
+                                <span class="time">{{notification.time}}</span>
+                            </div>
+                        </a>
+
+                    </perfect-scrollbar>
+                </div>
+            </li>
+
+        </ul>
+    </div>
+</mat-menu>
+<!-- ============================================================== -->
+<!-- Profile - style you can find in header.scss -->
+<!-- ============================================================== -->
+<!-- <button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-5"> <img src="{{photoUrl}}" alt="user" class="profile-pic"> </button> -->
+<mat-menu #profile="matMenu" class="mymegamenu header--info--drop--menu">
+    <!-- <button mat-menu-item (click)="editCurrentUser()">
+        <mat-icon><i class="fa fa-edit"></i></mat-icon> 编辑 </button> -->
+    <button mat-menu-item (click)="logout()">
+        <mat-icon><i class="fa fa-sign-out"></i></mat-icon> 登出
+    </button>
+</mat-menu>

@@ -1,0 +1,15 @@
+
+
+{
+    
+    "/transferapi": {
+      "target": {
+          "host" : "demo.docworks.cn",
+          "protocol" : "http",
+          "port" : "80"
+      },
+      "secure": false,
+      "changeOrigin": true,
+       "logLevel": "info"
+    }
+}
