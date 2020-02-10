@@ -2,85 +2,44 @@
 <!-- sidebar -->
 <!-- ============================================================== -->
 <div class="user-profile">
-    <!-- User profile image -->
-    <!--<div class="profile-img"   >-->
-       <!--&lt;!&ndash; <div  #userImg></div> &ndash;&gt;-->
-        <!--<div class="user&#45;&#45;info&#45;&#45;box">-->
-            <!--<div class="name&#45;&#45;box">-->
-                <!--{{_authenticationService.getUserInfo().userDisplayName}}，{{_authenticationService.getUserInfo().roleDisplayName}}-->
-            <!--</div>-->
-            <!--<div>-->
-                <!--<span (click)="editCurrentUser()" class="edit&#45;&#45;btn">-->
-                    <!--&lt;!&ndash;<i class="fa fa-pencil" aria-hidden="true"></i>&ndash;&gt;-->
-                    <!--编辑-->
-                <!--</span><span class="deliver"></span><span [routerLink]="['/login']" class="login&#45;&#45;btn">-->
-                 <!--&lt;!&ndash;<i class="fa fa-sign-out" aria-hidden="true"></i>&ndash;&gt;-->
-                    <!--登出-->
-                <!--</span>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
-    <!-- <mat-menu #appMenu="matMenu">
-        <button mat-menu-item (click)="editCurrentUser()">
-            <span>
-                <i class="fa fa-pencil" aria-hidden="true"></i>
-                编辑
-            </span>
-        </button>
-        <button mat-menu-item [routerLink]="['/login']">
-            <span>
-                <i class="fa fa-sign-out" aria-hidden="true"></i>
-                登出
-            </span>
-        </button>
-    </mat-menu> -->
-
-
     <mat-nav-list appAccordion>
         <mat-list-item appAccordionLink *ngFor="let menuitem of menuItems.getMenuitem()" routerLinkActive="selected">
-            <a class="" appAccordionToggle [routerLink]="['/',menuitem.state]"
+            <a  class=""  appAccordionToggle [routerLink]="['/',menuitem.state]"
                 *ngIf="menuitem.type === 'link'">
                 <mat-icon>
                     <i class=" {{ menuitem.icon }} left--sidebar--icon"></i>
                 </mat-icon>
-                <span>{{ menuitem.name }}</span>
+                <!-- <span>{{ menuitem.name }}</span> -->
                 <span fxFlex></span>
                 <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
             </a>
 
-            <a class="" appAccordionToggle href="{{menuitem.state}}" *ngIf="menuitem.type === 'extLink'">
-                <mat-icon>
-                    <i class=" {{ menuitem.icon }} left--sidebar--icon"></i>
-                </mat-icon>
-                <span>{{ menuitem.name }}</span>
-                <span fxFlex></span>
-                <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
-            </a>
-            <a class="" appAccordionToggle href="{{menuitem.state}}" target="_blank" *ngIf="menuitem.type === 'extTabLink'">
-                <mat-icon>
-                    <i class=" {{ menuitem.icon }} left--sidebar--icon"></i>
-                </mat-icon>
-                <span>{{ menuitem.name}}</span>
-                <span fxFlex></span>
-                <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
-            </a>
-            <a class="" appAccordionToggle href="javascript:;" *ngIf="menuitem.type === 'sub'">
-                <mat-icon>
-                    <i class=" {{ menuitem.icon }} left--sidebar--icon"></i>
-                </mat-icon>
-                <span>{{ menuitem.name }}</span>
-                <span fxFlex></span>
-                <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
-                <mat-icon class="dd-icon">keyboard_arrow_down</mat-icon>
-            </a>
-            <mat-nav-list class="sub-item" *ngIf="menuitem.type === 'sub'">
-                <mat-list-item *ngFor="let childitem of menuitem.children" routerLinkActive="selected">
-                    <a [routerLink]="['/', menuitem.state, childitem.state ]" class="relative" routerLinkActive="selected">{{ childitem.name}}</a>
-                </mat-list-item>
-            </mat-nav-list>
-            <div class="saperator text-muted" *ngIf="menuitem.type === 'saperator'">
-                <span>{{ menuitem.name }}</span>
+            <div (mouseenter)="showMenu(menuitem)"  (mouseleave)="hideMenu(menuitem)">
+                <a  [routerLink]="['/',menuitem.state]" style="display: none"></a>
+                <a  class=""   appAccordionToggle
+                    *ngIf="menuitem.type === 'drawer'">
+                    <mat-icon>
+                        <i class=" {{ menuitem.icon }} left--sidebar--icon"></i>
+                    </mat-icon>
+                    <!-- <span>{{ menuitem.name }}</span> -->
+                    <span fxFlex></span>
+                    <span class="label label-{{ badge.type }}" *ngFor="let badge of menuitem.badge">{{ badge.value }}</span>
+                </a>
+                <div *ngIf="menuitem.showMenu" class="show--menu--wrap"  >
+                    <ul *ngFor="let child of menuitem.children"  >
+                        <span class="head">{{child.name}}</span>
+                        <div class="node--name--box">
+                            <ng-container *ngFor="let node of child.nodes">
+                                    <li *ngIf="node.type!=='new_window'" routerLinkActive="selected" [queryParams]="node.queryParams" [routerLink]="['/',menuitem.state,node.state]" class="node--name">{{node.name}}</li>
+                                    <li *ngIf="node.type=='new_window'" class="node--name">
+                                        <a target="_blank" routerLinkActive="selected" [routerLink]="['/',node.state]" [queryParams]="node.queryParams">{{node.name}}</a>
+                                    </li>
+                            </ng-container>
+                        </div>
+                    </ul>
+                </div>
             </div>
+
         </mat-list-item>
     </mat-nav-list>
     </div>

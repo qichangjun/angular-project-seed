@@ -24,7 +24,7 @@ export class FullComponent implements OnDestroy, AfterViewInit {
   danger: boolean;
   showHide: boolean;
   sidebarOpened;
-
+  @ViewChild('snav') snavbar: any;
   public config: PerfectScrollbarConfigInterface = {};
   private _mobileQueryListener: () => void;
 
@@ -44,6 +44,10 @@ export class FullComponent implements OnDestroy, AfterViewInit {
     //     });
     //This is for the megamenu
 
+  }
+
+  goToSearch(){
+    // window.open(`http://${window.location.host}/search`)
   }
 
   openedChange(e) {

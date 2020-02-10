@@ -1,5 +1,5 @@
 import { MediaMatcher } from '@angular/cdk/layout';
-import { ChangeDetectorRef, Component } from '@angular/core';
+import { ChangeDetectorRef, Component,Input } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
 
@@ -16,7 +16,7 @@ export class AppSidebarComponent {
   public config: PerfectScrollbarConfigInterface = {};
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
-
+  @Input() snav : any;
   constructor(
     private dialog : MatDialog,
     public _configService : ConfigService,
@@ -36,5 +36,14 @@ export class AppSidebarComponent {
    
   }
 
+  showMenu(menuitem){
+    menuitem.showMenu = true
+    this.snav._elementRef.nativeElement.style.width = 320 + 'px'
+  }
+
+  hideMenu(menuitem){
+    menuitem.showMenu = false
+    this.snav._elementRef.nativeElement.style.width = 80 + 'px'
+  }
  
 }

@@ -16,5 +16,47 @@
   }
 }
 .user-profile{
-  padding-top: 14px   ;
+  padding-top: 14px;
+  height: 100%;
+  .show--menu--wrap{
+    position: fixed;
+    top: 64px;
+    left: 80px;
+    bottom: 0;
+    //width: 320px;
+    width: 250px;
+    background: #637078;
+    z-index: 9999;
+    .head{
+      display: inline-block;
+      width: 100%;
+      padding: 20px 20px 10px;
+      color: #ffffff;
+      font-size: 14px;
+    }
+    .node--name--box{
+      padding: 0 0 0 48px;
+    }
+    .node--name{
+      display: inline-block;
+      width: 130px;
+      color: #C5C6C8;
+      font-size: 14px;
+      margin-bottom: 5px;
+      &:hover{
+        color: #86BF64;
+      }
+      &.selected{
+        color: #86BF64;
+      }
+      a{
+        color: #C5C6C8 !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        &:hover{
+          color: #86BF64 !important;
+        }
+      }
+    }
+  }
 }

@@ -9,7 +9,8 @@ export interface Saperator {
   type?: string;
 }
 export interface ChildrenItems {
-  state: string;
+  state?: string;
+  nodes?:ChildrenItems[];
   name: string;
   type?: string;
 }
@@ -25,48 +26,25 @@ export interface Menu {
 }
 
 const MENUITEMS = [
-
   {
-    state: 'dataFormArea',
-    name: '监督指导',
+    state: 'missionCenter',
+    name: '任务中心',
     type: 'link',
     icon: 'ti-comments',
-    roleList : ['ast','da_business_guidance_role']
+    //menuCode : ['da_superuser_role','admin']
+    menuCode : 'taskCenter'
   },
   {
-    state: 'distributionArea',
-    name: '收集整理',
-    type: 'link',
-    icon: 'ti-files',
-    roleList : ['ast']
-  },
-  {
-    state: 'manageArea',
-    name: '档案管理',
-    type: 'link',
-    icon: 'ti-archive',
-    roleList : ['ast']
-  },
-  // {
-  //   state: 'fileDispose',
-  //   name: '档案处置',
-  //   type: 'link',
-  //   icon: 'ti-time',
-  //   roleList : ['ast']
-  // },
-  {
-    state: 'businessSet',
-    name: '业务规则',
-    type: 'link',
-    icon: 'ti-control-shuffle',
-    roleList : ['ast']
-  },
-  {
-    state: 'systemManage',
-    name: '系统管理',
-    type: 'link',
-    icon: 'ti-settings',
-    roleList : ['superuser','admin']
+    state: 'workAbilityAssessment',
+    name: '工作能力评估',
+    type: 'drawer',
+    icon: 'ti-harddrives',
+    children:[
+      {name:'数据管理', menuCode : 'receiveLibrary:receiveManage',nodes:[
+        {name:'接收库', menuCode : 'receiveLibrary:receiveManage:receiveHouse',state:'receiveList'}
+      ]}
+    ],
+    menuCode : 'receiveLibrary'
   }
 ];
 
@@ -76,5 +54,4 @@ export class MenuItems {
   getMenuitem(): Menu[] {
     return MENUITEMS;
   }
-
 }

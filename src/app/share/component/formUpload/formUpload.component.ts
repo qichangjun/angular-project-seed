@@ -31,7 +31,7 @@ export class FormUploadComponent implements OnInit {
         this.uploadUrl == 'importRecord' ? url = 'importRecord' : url = 'upload'
         this.uploader = new FileUploader({
             autoUpload: true,
-            url: this._configService.transferApi() + ApiUrl[url],            
+            url: this._configService.teamrowkApiUrl() + ApiUrl[url],            
             headers : [
                 // {name : 'accessToken',value : this._authenticationService.getAccessToken()}
               ]

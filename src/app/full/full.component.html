@@ -30,7 +30,7 @@
                  <!-- <img src="assets/images/logo-text.png" alt="homepage" class="dark-logo"> -->
                  <!-- Light Logo text -->
                  <span class="light-logo">
-                     安铂电子文件管理系统</span>
+                     杭州市档案局业务指导系统</span>
                  <!-- <img src="assets/images/logo-light-text.png"  alt="homepage"> -->
                 </span> </a>
         </div>
@@ -70,7 +70,8 @@
         <!-- ============================================================== -->
         <mat-sidenav #snav id="snav" class="dark-sidebar pl-xs" [mode]="mobileQuery.matches ? 'side' : 'over'" fixedTopGap="0" [opened]="mobileQuery.matches" [disableClose]="mobileQuery.matches" (openedChange)="sidebarOpened = $event" [perfectScrollbar]="config" >
 
-                <app-sidebar></app-sidebar>
+          <app-sidebar [snav]="snavbar"></app-sidebar>
+
 
 
         </mat-sidenav>

@@ -26,12 +26,15 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatTreeModule } from '@angular/material/tree';
+import {MatStepperModule} from '@angular/material/stepper';
 import { RouterModule } from '@angular/router';
 import { FileUploadModule } from 'ng2-file-upload/ng2-file-upload';
 //ant design模块
 import { NzNotificationModule } from 'ng-zorro-antd/notification';
 import { NzTreeSelectModule } from 'ng-zorro-antd/tree-select';
 import { NzProgressModule } from 'ng-zorro-antd/progress';
+import { NzDatePickerModule } from 'ng-zorro-antd/date-picker';
+
 //自定义模块
 import { MenuItems } from './class/menu-items/menu-items';
 import { BreadCrumbComponent } from './component/breadcrumb/breadcrumb.component';
@@ -95,7 +98,7 @@ export class AppDateAdapter extends NativeDateAdapter {
     NzNotificationModule,NzTreeSelectModule,
     MatDatepickerModule, MatRadioModule,
     MatNativeDateModule, MatExpansionModule,
-
+    NzDatePickerModule,MatStepperModule
   ],
   exports: [
     CommonModule,NzNotificationModule,NzTreeSelectModule,
@@ -103,7 +106,7 @@ export class AppDateAdapter extends NativeDateAdapter {
     JsonpModule, ImagePreview, RecordInfoComponent,
     FormsModule, ReactiveFormsModule, MatRadioModule,
     RouterModule,
-      
+    MatStepperModule,
     LoadingMessageComponent,
     SpinnerComponent, ZTreeComponent,
     Sizefilter, FormUploadComponent, fileNameToIconfilter, InitTableValueDirective, 

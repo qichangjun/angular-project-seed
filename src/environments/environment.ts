@@ -4,7 +4,10 @@
 
 export const environment = {
   production: false,
-  transferApi : '/transferapi'
+  transferApi : '/transferapi',
+  cookieName:'teamwork',
+  teamrowkApi:'/teamworkapi',
+  adminUrl : 'http://localhost:4200/#/login?returnUrl=',
 };
 
 /*

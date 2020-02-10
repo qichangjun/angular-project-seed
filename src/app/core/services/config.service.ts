@@ -4,8 +4,8 @@ import { environment } from '../../../environments/environment';
 @Injectable()
 export class ConfigService {
   constructor() { }
-  transferApi(){
-    return environment.transferApi;
+  teamrowkApiUrl(){
+    return environment.teamrowkApi;
   }
 
 }

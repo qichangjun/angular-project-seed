@@ -17,10 +17,10 @@
   padding: 0 !important;
 }
 .navbar-header{
-  padding-left: 15px;
+  padding-left: 29px;
 }
 mat-toolbar.topbar{
-  padding: 0px 22px 0 20px;
+  padding: 0px 22px 0 22px;
 }
 .page-content{
   padding: 0 !important;
@@ -39,4 +39,8 @@ app-header{
   color:white;
   font-size: 16px;
   line-height: normal;
+}
+
+mat-sidenav-content{
+  background: #ffffff;
 }
