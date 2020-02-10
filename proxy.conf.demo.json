@@ -2,9 +2,9 @@
 
 {
     
-    "/transferapi": {
+    "/teamworkapi": {
       "target": {
-          "host" : "demo.docworks.cn",
+          "host" : "amberdata.cn",
           "protocol" : "http",
           "port" : "80"
       },
