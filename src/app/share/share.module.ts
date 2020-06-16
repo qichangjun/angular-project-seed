@@ -41,11 +41,9 @@ import { BreadCrumbComponent } from './component/breadcrumb/breadcrumb.component
 import { FormUploadComponent } from './component/formUpload/formUpload.component';
 import { LoadingMessageComponent } from './component/loadingMessage/loadingMessage.component';
 import { MyPaginationComponent } from './component/pagination/pagination.component';
-import { RecordInfoComponent } from './component/record-info/record-info.component';
 import { SpinnerComponent } from './component/spinner/spinner.component';
 import { ZTreeComponent } from './component/z-tree/z-tree.component';
 import { ImagePreview } from './directive/image-preview.directive';
-import { InitTableValueDirective } from './directive/initTableValue.directive';
 import { fileNameToIconfilter } from './pipe/fileNameToIcon.pipe';
 import { Sizefilter } from './pipe/size.pipe';
 export const MY_FORMATS = {
@@ -103,13 +101,13 @@ export class AppDateAdapter extends NativeDateAdapter {
   exports: [
     CommonModule,NzNotificationModule,NzTreeSelectModule,
     HttpModule,
-    JsonpModule, ImagePreview, RecordInfoComponent,
+    JsonpModule, ImagePreview,
     FormsModule, ReactiveFormsModule, MatRadioModule,
     RouterModule,
     MatStepperModule,
     LoadingMessageComponent,
     SpinnerComponent, ZTreeComponent,
-    Sizefilter, FormUploadComponent, fileNameToIconfilter, InitTableValueDirective, 
+    Sizefilter, FormUploadComponent, fileNameToIconfilter, 
     MatProgressSpinnerModule, BreadCrumbComponent, 
     MatDialogModule,  MyPaginationComponent,
     MatCheckboxModule, 
@@ -138,6 +136,6 @@ export class AppDateAdapter extends NativeDateAdapter {
     // { provide: MAT_DATE_FORMATS, useValue: MY_FORMATS }
   ],
   entryComponents: [],
-  declarations: [RecordInfoComponent,InitTableValueDirective, ImagePreview, LoadingMessageComponent, Sizefilter, fileNameToIconfilter, FormUploadComponent, SpinnerComponent, ZTreeComponent, BreadCrumbComponent, MyPaginationComponent]
+  declarations: [ImagePreview, LoadingMessageComponent, Sizefilter, fileNameToIconfilter, FormUploadComponent, SpinnerComponent, ZTreeComponent, BreadCrumbComponent, MyPaginationComponent]
 })
 export class ShareModule { }
