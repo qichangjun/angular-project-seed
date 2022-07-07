@@ -33,7 +33,7 @@
     "jquery": "^3.3.1",
     "js-cookie": "~2.0.4",
     "jsonpath-plus": "^0.18.0",
-    "moment": "^2.24.0",
+    "moment": "^2.29.4",
     "ng-zorro-antd": "^7.5.0",
     "ng2-file-upload": "^1.2.1",
     "ngx-perfect-scrollbar": "^6.0.0",
